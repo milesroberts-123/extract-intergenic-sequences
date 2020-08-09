@@ -16,11 +16,11 @@ A fasta-formatted sequence file where each entry is an intergenic sequence (i.e.
 Download the three scripts in this repository and put them all in the same directory as the fasta file and gff file you want to extract intergenic sequences from. Make sure
 you make all three of these scripts executable with:
 
-`chmod +x extract_intergenic_sequences.bash`
-
-`chmod +x build_genome_file.py`
-
-`chmod +x add_placeholders_to_gff.R`
+```
+chmod +x extract_intergenic_sequences.bash
+chmod +x build_genome_file.py
+chmod +x add_placeholders_to_gff.R
+```
 
 To extract promoter sequences, use:
 
