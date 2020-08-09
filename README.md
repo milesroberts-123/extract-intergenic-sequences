@@ -25,13 +25,18 @@ To extract promoter sequences, use:
 
 An intergenic region where the directions of transcription are as so:
 
+<pre>
+
 gene 1 transcription =>
 5'====================================================================================3'
 3'====================================================================================5'
                                                                 <= gene 2 transcription 
-                                                                
-Is not likely to contain regulatory sequences. However, these three other types of intergenic regions do often contain regulatory sequences:
 
+</pre>
+
+is not likely to contain some types of regulatory sequences, such as those often found in promoters, because it contains no sequence upstream of gene's transcription start site. However, these three other types of intergenic regions do often contain regulatory sequences:
+
+<pre>
 
 gene 1 transcription =>                                         gene 2 transcription =>
 5'====================================================================================3'
@@ -47,6 +52,8 @@ gene 1 transcription =>                                         gene 2 transcrip
 5'====================================================================================3'
 3'====================================================================================5'
 <= gene 1 transcription 
+
+</pre>
 
 The code published here will omit intergenic regions of the first type but include the three other types of intergenic regions.
 
