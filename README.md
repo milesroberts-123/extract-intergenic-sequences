@@ -1,11 +1,12 @@
 # extract-intergenic-sequences
-Extract intergenic sequences from a fasta file using coordinates in a gff file, but omit intergenic sequences where adjacent genes have opposing directions of transcription.
+This code will extract intergenic sequences from a fasta file using coordinates in a gff file, but omit intergenic sequences where adjacent genes have opposing directions of transcription. Such sequences may be useful background sequences for some bioinformatic analyses, such as de novo motif discovery. 
 
 **INPUT**
 1. a fasta-formatted sequence file
 2. a genome feature format (gff) file
 
 **OUTPUT**
+A fasta-formatted sequence file where each entry is an intergenic sequence (i.e. a sequence lying between two genes). 
 
 ## USAGE
 Download the three scripts in this repository and put them all in the same directory as the fasta file and gff file you want to extract intergenic sequences from. Make sure
@@ -14,8 +15,55 @@ you make all three of these scripts executable with:
 
 `chmod +x build_genome_file.py`
 
-`chmod +x subset_gene_features.R`
+`chmod +x add_placeholders_to_gff.R`
 
 To extract promoter sequences, use:
 
-`./extract_prom_seq.bash -f <FASTA FILE> -g <GFF FILE> -o <OUTPUT file name>
+`./extract_intergenic_sequences.bash -f <FASTA FILE> -g <GFF FILE> -o <OUTPUT file name>`
+
+## EXPLANATION
+
+An intergenic region where the directions of transcription are as so:
+
+gene 1 transcription =>
+5'====================================================================================3'
+3'====================================================================================5'
+                                                                <= gene 2 transcription 
+                                                                
+Is not likely to contain regulatory sequences. However, these three other types of intergenic regions do often contain regulatory sequences:
+
+gene 1 transcription =>                                         gene 2 transcription =>
+5'====================================================================================3'
+3'====================================================================================5'
+
+                                                                      
+5'====================================================================================3'
+3'====================================================================================5'
+<= gene 1 transcription                                         <= gene 2 transcription
+         
+                                                                gene 2 transcription =>     
+5'====================================================================================3'
+3'====================================================================================5'
+<= gene 1 transcription 
+
+The code published here will omit intergenic regions of the first type but include the three other types of intergenic regions.
+
+## DEPENDENCIES
+
+1. bedtools
+
+Installation instructions are [here](https://bedtools.readthedocs.io/en/latest/content/installation.html)
+
+2. base R
+
+I tested this with R 3.6
+
+3. Biopython
+
+Installation instructions are [here](https://biopython.org/wiki/Download)
+
+4. dos2unix (maybe optional, but I need to do more testing)
+
+Install with:
+
+`sudo apt install dos2unix`
