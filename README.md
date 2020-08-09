@@ -1,7 +1,7 @@
 # extract-intergenic-sequences
 This code will extract intergenic sequences from a fasta file using coordinates in a gff file, but omit intergenic sequences where adjacent genes have opposing directions of transcription. Such sequences may be useful background sequences for some bioinformatic analyses, such as de novo motif discovery. 
 
-This code was inspired by guidelines for using [MotifSampler](http://bioinformatics.intec.ugent.be/MotifSuite/usemotifsampler.php), a de novo motif discovery algorithm.
+This code was inspired by guidelines for using [MotifSuite](http://bioinformatics.intec.ugent.be/MotifSuite/usecreatebackgroundmodel.php), a set of executables for *de novo* motif discovery.
 
 **INPUT**
 1. a fasta-formatted sequence file
