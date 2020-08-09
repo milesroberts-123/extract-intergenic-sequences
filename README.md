@@ -1,16 +1,21 @@
 # extract-intergenic-sequences
 This code will extract intergenic sequences from a fasta file using coordinates in a gff file, but omit intergenic sequences where adjacent genes have opposing directions of transcription. Such sequences may be useful background sequences for some bioinformatic analyses, such as de novo motif discovery. 
 
+This code was inspired by guidelines for using [MotifSampler](http://bioinformatics.intec.ugent.be/MotifSuite/usemotifsampler.php), a de novo motif discovery algorithm.
+
 **INPUT**
 1. a fasta-formatted sequence file
 2. a genome feature format (gff) file
 
 **OUTPUT**
+
 A fasta-formatted sequence file where each entry is an intergenic sequence (i.e. a sequence lying between two genes). 
 
 ## USAGE
+
 Download the three scripts in this repository and put them all in the same directory as the fasta file and gff file you want to extract intergenic sequences from. Make sure
 you make all three of these scripts executable with:
+
 `chmod +x extract_intergenic_sequences.bash`
 
 `chmod +x build_genome_file.py`
@@ -55,7 +60,7 @@ gene 1 transcription =>                                         gene 2 transcrip
 
 </pre>
 
-The code published here will omit intergenic regions of the first type but include the three other types of intergenic regions.
+The code published here will omit intergenic regions from a set of sequences, but omit sequences of the first type above from the final output.
 
 ## DEPENDENCIES
 
